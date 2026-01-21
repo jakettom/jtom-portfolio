@@ -10,7 +10,201 @@
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 
   <style>
-    /* (STYLES UNCHANGED — OMITTED HERE FOR BREVITY IN THIS EXPLANATION) */
+        /* -------------------------
+             GLOBAL STYLES & RESET
+          ------------------------- */
+          * { margin: 0; padding: 0; box-sizing: border-box; }
+          html, body { width: 100%; font-family: 'Arial', sans-serif; background: #1a1a1a; color: #e0e0e0; scroll-behavior: smooth; }
+          :root { --accent: #00aaff; }
+      
+          /* -------------------------
+             SIDEBAR NAVIGATION
+          ------------------------- */
+          .sidebar { position: fixed; top: 0; left: 0; width: 220px; height: 100%; background: #111; padding: 2rem 1rem; display: flex; flex-direction: column; align-items: center; }
+          .sidebar h2 {   color: var(--accent); margin-bottom: 1.5rem;padding-bottom: 0.8rem; border-bottom: 1px solid #333; /* Adjust color if needed */ width: 100%; text-align: center;}
+          .sidebar ul { list-style: none; width: 100%; padding: 0; }
+          .sidebar ul li { margin: 1.5rem 0; text-align: center; }
+          .sidebar ul li a { color: #e0e0e0; text-decoration: none; font-weight: bold; font-size: 1.2rem; transition: color 0.3s; display:block;}
+          .sidebar ul li a:hover { color: var(--accent); }
+      
+          /* Resume link styling */
+          .sidebar ul li.resume-link a { border: 2px solid var(--accent); padding: 0.4rem 0.6rem; border-radius: 6px; display: inline-block; }
+          .sidebar ul li.resume-link a:hover { background: var(--accent); color: black; }
+      
+          /* Resume button style (used in Home too) */
+          .resume-btn { padding: 0.8rem 1.5rem; border-radius: 8px; background: var(--accent); color: white; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; font-weight: bold; }
+          .resume-btn:hover { background: #0088cc; color: white; }
+      
+          /* -------------------------
+             MOBILE HAMBURGER
+          ------------------------- */
+         .menu-toggle{
+            position:fixed;top:12px;left:12px;z-index:1600;
+            display:none;background:var(--panel);color:var(--text);border-radius:8px;padding:.45rem .6rem;font-size:1.1rem;cursor:pointer;
+            align-items:center;gap:.5rem;  outline: 2px solid var(--accent); outline-offset: 2px;}
+          .menu-toggle:focus{outline:2px solid var(--accent)}
+          /* Visual overlay on mobile only. IMPORTANT: pointer-events:none so page remains scrollable behind the menu (per your 'allow scroll' decision). */
+      	.mobile-overlay { position: fixed; top: 0; right: 0; width: calc(100% - 220px); height: 100%; background: rgba(0,0,0,.45); z-index: 1500; opacity: 0; pointer-events: none; transition: opacity .25s ease;}
+      	.sidebar.active + .mobile-overlay.active { pointer-events: auto;} 
+         
+        @media (max-width: 1024px) {
+            .menu-toggle { display: block; }
+            .sidebar { width: 100vw; height: 100vh; transform: translateX(-100%); transition: transform 0.3s ease; z-index: 1100; }
+            .sidebar.active { transform: translateX(0); }
+            .content { margin-left: 0; transition: margin-left 0.3s ease; }
+            .content.shifted { margin-left: 220px; }
+            .sidebar ul li { margin: 1rem 0; font-size: 1.1rem; }
+          }
+      
+          /* -------------------------
+             MAIN CONTENT AREA
+          ------------------------- */
+          .content { margin-left: 220px; }
+          .section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem; border-bottom: 1px solid #333; opacity: 0; transform: translateY(20px); transition: all 1s ease; }
+          .section.visible { opacity: 1; transform: translateY(0); }
+      
+          /* -------------------------
+             HOME SECTION
+          ------------------------- */
+          .home { background: #1e1e1e; }
+          .home img { width: 180px; height: 180px; border-radius: 50%; border: 3px solid #444; object-fit: cover; display: block; margin: 1rem auto 0 auto; }
+          .home .button-group { margin-top: 1.5rem; display: flex; gap: 1rem; }
+          .home .button-group a { padding: 0.8rem 1.5rem; border-radius: 8px; background: #444; color: white; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 0.5rem; transition: background 0.3s; }
+          .home .button-group a:hover { background: var(--accent); color: black; }
+      
+          /* -------------------------
+             ABOUT SECTION
+          ------------------------- */
+          #about { padding: 80px 20px; max-width: 800px; margin: 0 auto; color: white; }
+          #about h1 { font-size: 2.5rem; text-align: center; margin-bottom: 40px; color: white; }
+          .about-box { background: #2b2b2b; border: 2px solid #444; border-radius: 10px; padding: 1rem; max-width: 600x; margin: 0 auto; box-shadow: 0 6px 12px rgba(0,0,0,0.3); text-align: justify; }
+          .about-box p { font-size: 1rem; line-height: 1.5; margin-bottom: 20px; text-indent:1em }
+      
+          /* -------------------------
+             SKILLS SECTION
+          ------------------------- */
+          .skills-category { margin-top: 2rem; width: 100%; max-width: 900px; text-align: center; }
+          .skills-category h3 { color: var(--accent); margin-bottom: 1rem; }
+          .skills-grid { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+          .skill { background: #333; padding: 0.4rem 0.8rem; border-radius: 6px; white-space: nowrap; text-align: center; }
+      
+          /* -------------------------
+             WORK EXPERIENCE
+          ------------------------- */
+          .work-experience-list { display: flex; flex-direction: column; gap: 1.5rem; width: 100%; max-width: 800px; margin: 2rem auto 0 auto; align-items: center; }
+          .work-experience-item { background: #2b2b2b; border: 1px solid #444; border-radius: 10px; padding: 1rem 1.5rem; text-align: left; box-shadow: 0 6px 12px rgba(0,0,0,0.3); cursor: pointer; transition: transform 0.3s, background 0.3s; }
+          .work-experience-item:hover { transform: translateY(-5px); background: #333; }
+          .work-experience-item h3 { margin-bottom: 0.3rem; color: var(--accent); text-align: center; }
+          .work-experience-item p strong { color: #fff; text-align: center; }
+          .work-experience-item .description { display: none; margin-top: 0.8rem; color: #ccc; font-size: 0.95rem; line-height: 1.4; }
+          .work-experience-item.active .description { display: block; }
+      
+          /* -------------------------
+             PROJECTS SECTION
+          ------------------------- */
+          .project-list { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; justify-content: center; }
+          .project-card {position: relative; width: 250px; height: 280px; background: #333; color: #e0e0e0; padding: 1rem; border-radius: 10px; box-shadow: 0 8px 15px rgba(0,0,0,0.3); cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; transition: transform 0.3s; }
+          .project-card:hover { transform: translateY(-10px); }
+          .project-card img { width: 100%; height: 180px; border-radius: 8px; object-fit: cover; margin-bottom:0.8rem; }
+          .project-card .overlay {  position: absolute;  inset: 0; background: rgba(0, 0, 0, 0.6);color: white;  display: flex;  align-items: center;  justify-content: center;  font-size: 1.2rem; font-weight: bold;  opacity: 0;  transition: opacity 0.3s ease;}
+          .project-card:hover .overlay {  opacity: 1;}
+      
+          /* Lightbox */
+          #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 1000; }
+          #lightbox img { max-width: 90%; max-height: 80%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+      
+          /* -------------------------
+             CONTACT SECTION
+          ------------------------- */
+          .contact form { display: flex; flex-direction: column; gap: 1rem; width: 300px; }
+          .contact input, .contact textarea { padding: 0.8rem; border: none; border-radius: 5px; background: #333; color: #e0e0e0; }
+          .contact button { padding: 0.8rem; border: none; border-radius: 5px; background: #555; color: white; cursor: pointer; transition: background 0.3s; }
+          .contact button:hover { background: #777; }
+          .social { display: flex; gap: 1rem; margin-top: 1rem; justify-content: center; }
+          .social a { color: #e0e0e0; font-size: 1.5rem; transition: color 0.3s; display: flex; align-items: center; gap: 0.3rem; text-decoration: none; }
+          .social a:hover { color: var(--accent); }
+      
+      	/* ----- Footer styling ----- */
+      	footer { background: var(--panel); color: var(--muted); text-align: center; padding: 1.5rem 1rem; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 3rem;}
+      	footer p { margin: 0; letter-spacing: 0.5px;}
+      	footer a { color: var(--accent); text-decoration: none; font-weight: 600;}
+      	footer a:hover { text-decoration: underline;}
+      	/* Keep footer at bottom when content is short */
+      	html, body { height: 100%; display: flex; flex-direction: column;}
+      	main.content { flex: 1;}
+      
+          @media screen and (max-width: 768px) {
+            #about h1 { font-size: 2rem; }
+            .about-box p { font-size: 1rem; line-height: 1.5; text-indent: 0; }
+            .skills-category h3 { font-size: 1.2rem; }
+            .skill { padding: 0.3rem 0.6rem; font-size: 0.9rem; }
+            .work-experience-item { width: 95%; padding: 0.8rem 1rem; }
+            .project-card { width: 90%; height: auto; padding: 1rem; }
+            .project-card img { max-width: 100%; height: auto; display: block; margin: 0 auto 0.8rem auto; border-radius: 10px; }
+          }
+          
+            /* ---------- Responsive rules ---------- */
+      /* Center work experience items on mobile */
+      @media screen and (max-width: 768px) {
+        .work-experience-list {
+          display: flex;
+          flex-direction: column;
+          align-items: center;  /* Center all items */
+          gap: 1.5rem;
+          width: 100%;
+          padding: 0;
+        }
+      
+        .work-experience-item {
+          width: 90%;            /* Make cards smaller and centered */
+          text-align: center;    /* Center text inside each card */
+        }
+      
+        .work-experience-item h3,
+        .work-experience-item p {
+          text-align: Center;    /* Center headings and paragraphs */
+        }
+      
+        .work-experience-item .description p {
+          text-align: Left;    /* Center description text */
+        }
+      }
+      
+      
+      	  
+          /* Mobile first adjustments */
+          @media (max-width:767px){
+            .sidebar{transform:translateX(-105%);width:85vw;max-width:320px;padding:3rem;align-items:center}
+            .sidebar.active{transform:translateX(0)}
+            .menu-toggle{display:flex}
+            .content{margin-left:0;padding:1rem}
+            .project-title{font-size:1.4rem}
+            model-viewer{height:40vh}
+            .mobile-overlay.active{opacity:1}
+              .mobile-overlay {
+          width: 0vw;         /* Covers only the right 15% behind content */
+          left: auto;          /* Reset left positioning */
+          right: 0;
+          transform: none;     /* No sliding needed */
+        }
+            .masonry{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.6rem}
+            .back-button{align-self:flex-start;margin-top:.75rem}
+          }
+      
+          /* Tablet: fixed sidebar (per your 'fixed' choice) */
+          @media (min-width:768px) and (max-width:1024px){
+            .sidebar{transform:none;left:0;width:220px;padding:1.8rem;align-items:center}
+            .menu-toggle{display:none}
+            .content{margin-left:220px;padding:1.5rem}
+            model-viewer{height:55vh}
+          }
+      
+          /* Desktop */
+          @media (min-width:1025px){
+            .sidebar{transform:none;left:0;width:260px}
+            .content{margin-left:260px;padding:2rem}
+          }  
+        
   </style>
 </head>
 <body>
