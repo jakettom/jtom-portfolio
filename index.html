@@ -1,1 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nathaniel Karau Portfolio</title>
 
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+  <style>
+    /* (STYLES UNCHANGED — OMITTED HERE FOR BREVITY IN THIS EXPLANATION) */
+  </style>
+</head>
+<body>
+
+  <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+
+  <!-- SIDEBAR NAVIGATION -->
+  <nav class="sidebar">
+    <h2>Portfolio</h2>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work-experience">Work Experience & Awards/Achievements</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li class="resume-link">
+        <a href="assets/Nathaniel_Karau_Resume.pdf" download>
+          <i class="fas fa-download"></i> Resume
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+
+    <!-- HOME SECTION (UNCHANGED) -->
+    <section id="home" class="section home">
+      <h1>Hi, I'm Nathaniel Karau</h1>
+      <p>Engineer | Designer | Innovator</p>
+      <p><em>Mission: To design and deliver innovative engineering solutions through creativity, precision, and continuous improvement.</em></p>
+      <img src="assets/Nathaniel_Karau_Headshot.jpg" alt="My Photo">
+      <div class="button-group">
+        <a href="#projects">Projects</a>
+        <a href="assets/Nathaniel_Karau_Resume.pdf" download class="resume-btn">
+          <i class="fas fa-download"></i> Resume
+        </a>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION (UPDATED CONTENT ONLY) -->
+    <section id="about" class="section about">
+      <h1>About Me</h1>
+      <div class="about-box">
+        <p>
+          I’m always looking for opportunities to turn the ideas of the future into tangible results in the present.
+          As an undergraduate electrical engineering student, I enjoy bridging theory and practice through hands-on
+          work with circuits, signals, and embedded systems.
+        </p>
+
+        <p>
+          I’m especially motivated by problem-solving—whether that means debugging a stubborn circuit, refining code,
+          or validating designs through real measurements.
+        </p>
+
+        <p>
+          I’m currently seeking a summer internship where I can apply classroom knowledge to real-world engineering
+          challenges while learning from experienced engineers. My background includes circuit analysis, analog and
+          digital electronics, and programming for engineering applications, along with practical lab experience
+          using oscilloscopes, power supplies, and other measurement tools.
+        </p>
+
+        <p>
+          I’m eager to contribute to technical projects and continue developing my skills in a professional
+          environment. If you’re open to connecting or discussing internship opportunities, projects, or engineering
+          work, feel free to reach out—I’d love to start a conversation.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS, WORK EXPERIENCE, PROJECTS (UNCHANGED) -->
+
+    <!-- CONTACT SECTION (FORM REMOVED) -->
+    <section id="contact" class="section contact">
+      <h1>Contact Me</h1>
+
+      <div class="social">
+        <a href="https://www.linkedin.com/in/natekarau" target="_blank">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://github.com/natekarau61" target="_blank">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="mailto:nathaniel.karau@gmail.com">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER (UNCHANGED) -->
+    <footer>
+      <p>© 2025 Nathaniel Karau — Engineering Portfolio v1.0</p>
+    </footer>
+  </div>
+
+  <!-- JAVASCRIPT (FORM HANDLING REMOVED, EVERYTHING ELSE UNCHANGED) -->
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    const content = document.querySelector('.content');
+
+    menuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+      content.classList.toggle('shifted');
+    });
+
+    const sections = document.querySelectorAll('.section');
+    const revealSection = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(revealSection, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
+
+    function toggleDescription(item) {
+      item.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
