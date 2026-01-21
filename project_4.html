@@ -168,3 +168,176 @@
   </style>
 </head>
 
+	
+
+<body>
+
+  <!-- Mobile Menu Toggle (hamburger) -->
+  <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="sidebar" aria-label="Open menu">
+    <i class="fas fa-bars" aria-hidden="true"></i>
+  </button>
+
+  <!-- Visual overlay (mobile only visual) -->
+  <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
+
+  <!-- Sidebar -->
+  <nav id="sidebar" class="sidebar" aria-label="Main navigation">
+    <h2>Portfolio</h2>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#photos">Photos</a></li>
+    </ul>
+    <a href="index.html#projects" class="back-button"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back</a>
+  </nav>
+
+
+  <!-- Main Content -->
+  <main class="content" id="mainContent" tabindex="-1">
+    <h1 class="project-title">Decibel Meter </h1>
+	
+	<!-- Overview -->
+	<section id="overview" class="section" aria-labelledby="overview-heading">
+	  <h1 id="overview-heading">Project Overview</h1>
+	
+	  <div class="case-study">
+	
+		<div class="case-block">
+		  <h2>Summarys</h2>
+		  <ul>
+			<li>Arduino-based sound safety device with LED screen, 3D printed case, microphone</li>
+			<li>Used Arduino ADC and linear approximation to convert voltage to decibels</li>
+		  </ul>
+		</div>
+	
+	  </div>
+	</section>
+	
+	    <!-- Photos -->
+	    <section id="photos" class="section" aria-labelledby="photos-heading">
+	      <h1 id="photos-heading">Photos</h1>
+	      <div class="masonry" id="photosMasonry">
+	        <div class="img-wrapper"><img loading="lazy" src="project_4/disp1.jpg" alt="Jacket"><span class="overlay">Click to expand</span></div>
+	        <div class="img-wrapper"><img loading="lazy" src="project_4/dbtest.jpg" alt="Form"><span class="overlay">Click to expand</span></div>
+	        <div class="img-wrapper"><img loading="lazy" src="project_4/disp2.jpg" alt="Form 1"><span class="overlay">Click to expand</span></div>
+			<div class="img-wrapper"><img loading="lazy" src="project_4/testmeter.jpg" alt="Form"><span class="overlay">Click to expand</span></div>
+	        <div class="img-wrapper"><img loading="lazy" src="project_4/disp3.jpg" alt="Form 1"><span class="overlay">Click to expand</span></div>
+	      </div>
+	    </section>
+
+<!-- Lightbox (Unified for Images + PDFs) -->
+<!-- 🔹 Single Lightbox (for Images + PDFs) -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Expanded view">
+  <span id="lbCloseBtn" aria-label="Close lightbox">&times;</span>
+  <button id="lbPrevBtn" aria-label="Previous image">&#10094;</button>
+  <button id="lbNextBtn" aria-label="Next image">&#10095;</button>
+  
+  <div class="lightbox-content">
+    <img id="lightboxImg" alt="" />
+    <iframe id="lightboxIframe" src="" frameborder="0"></iframe>
+  </div>
+</div>
+	  
+		    <!-- Footer -->
+	    <footer>
+	      <p>© 2026 Jacob Tom — Engineering Portfolio</p>
+	    </footer>
+	  </main>
+
+ <!-- Scripts -->
+  <script>
+ const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxIframe = document.getElementById("lightboxIframe");
+  const closeBtn = document.getElementById("lbCloseBtn");
+  const prevBtn = document.getElementById("lbPrevBtn");
+  const nextBtn = document.getElementById("lbNextBtn");
+
+  let currentIndex = -1;
+  const galleryImages = Array.from(document.querySelectorAll(".img-wrapper img"));
+
+galleryImages.forEach((img, index) => {
+  img.parentElement.addEventListener("click", () => {
+    openLightbox(img.src, img.alt, { index });
+  });
+});
+
+  // 🔹 Open Lightbox (Image or PDF)
+  function openLightbox(src, alt = "", options = {}) {
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+
+    if (options.isPDF) {
+      lightboxIframe.src = src;
+      lightboxIframe.style.display = "block";
+      lightboxImg.style.display = "none";
+      prevBtn.style.display = "none";
+      nextBtn.style.display = "none";
+      currentIndex = -1;
+    } else {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || "Expanded image";
+      lightboxImg.style.display = "block";
+      lightboxIframe.style.display = "none";
+      prevBtn.style.display = "block";
+      nextBtn.style.display = "block";
+      currentIndex = options.index ?? -1;
+    }
+    closeBtn.focus();
+  }
+
+  // 🔹 Close Lightbox
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImg.src = "";
+    lightboxIframe.src = "";
+  }
+
+  // 🔹 Slideshow Navigation
+  function changeSlide(step) {
+    if (currentIndex >= 0) {
+      currentIndex = (currentIndex + step + galleryImages.length) % galleryImages.length;
+      const img = galleryImages[currentIndex];
+      openLightbox(img.src, img.alt, { index: currentIndex });
+    }
+  }
+
+  // Events
+  closeBtn.addEventListener("click", closeLightbox);
+  prevBtn.addEventListener("click", () => changeSlide(-1));
+  nextBtn.addEventListener("click", () => changeSlide(1));
+
+  galleryImages.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      openLightbox(img.src, img.alt, { index });
+    });
+  });
+
+  // PDF opener (example: your presentation)
+  document.querySelector(".pdf-wrapper").addEventListener("click", () => {
+    openLightbox("Project_0/Presentation/Tilt_Table_Presentation.pdf#view=FitW", "", { isPDF: true });
+  });
+
+  // Keyboard support
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") changeSlide(-1);
+    if (e.key === "ArrowRight") changeSlide(1);
+  });
+
+const sections = document.querySelectorAll('.section');
+function revealSections() {
+  const triggerBottom = window.innerHeight * 0.85;
+  sections.forEach(sec => {
+    const secTop = sec.getBoundingClientRect().top;
+    if (secTop < triggerBottom) sec.classList.add('visible');
+  });
+}
+window.addEventListener('scroll', revealSections);
+revealSections(); // run on load
+	  
+  </script>
+</body>
+</html>
+
