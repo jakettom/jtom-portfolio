@@ -240,3 +240,106 @@
       </div>
     </section>
 
+	    <!-- Footer -->
+    <footer>
+      <p>© 2026 Jacob Tom — Engineering Portfolio</p>
+    </footer>
+  </main>
+
+ <!-- Scripts -->
+  <script>
+ const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxIframe = document.getElementById("lightboxIframe");
+  const closeBtn = document.getElementById("lbCloseBtn");
+  const prevBtn = document.getElementById("lbPrevBtn");
+  const nextBtn = document.getElementById("lbNextBtn");
+
+  let currentIndex = -1;
+  const galleryImages = Array.from(document.querySelectorAll(".img-wrapper img"));
+
+galleryImages.forEach((img, index) => {
+  img.parentElement.addEventListener("click", () => {
+    openLightbox(img.src, img.alt, { index });
+  });
+});
+
+  // 🔹 Open Lightbox (Image or PDF)
+  function openLightbox(src, alt = "", options = {}) {
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+
+    if (options.isPDF) {
+      lightboxIframe.src = src;
+      lightboxIframe.style.display = "block";
+      lightboxImg.style.display = "none";
+      prevBtn.style.display = "none";
+      nextBtn.style.display = "none";
+      currentIndex = -1;
+    } else {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || "Expanded image";
+      lightboxImg.style.display = "block";
+      lightboxIframe.style.display = "none";
+      prevBtn.style.display = "block";
+      nextBtn.style.display = "block";
+      currentIndex = options.index ?? -1;
+    }
+    closeBtn.focus();
+  }
+
+  // 🔹 Close Lightbox
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImg.src = "";
+    lightboxIframe.src = "";
+  }
+
+  // 🔹 Slideshow Navigation
+  function changeSlide(step) {
+    if (currentIndex >= 0) {
+      currentIndex = (currentIndex + step + galleryImages.length) % galleryImages.length;
+      const img = galleryImages[currentIndex];
+      openLightbox(img.src, img.alt, { index: currentIndex });
+    }
+  }
+
+  // Events
+  closeBtn.addEventListener("click", closeLightbox);
+  prevBtn.addEventListener("click", () => changeSlide(-1));
+  nextBtn.addEventListener("click", () => changeSlide(1));
+
+  galleryImages.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      openLightbox(img.src, img.alt, { index });
+    });
+  });
+
+  // PDF opener (example: your presentation)
+  document.querySelector(".pdf-wrapper").addEventListener("click", () => {
+    openLightbox("Project_0/Presentation/Tilt_Table_Presentation.pdf#view=FitW", "", { isPDF: true });
+  });
+
+  // Keyboard support
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") changeSlide(-1);
+    if (e.key === "ArrowRight") changeSlide(1);
+  });
+
+const sections = document.querySelectorAll('.section');
+function revealSections() {
+  const triggerBottom = window.innerHeight * 0.85;
+  sections.forEach(sec => {
+    const secTop = sec.getBoundingClientRect().top;
+    if (secTop < triggerBottom) sec.classList.add('visible');
+  });
+}
+window.addEventListener('scroll', revealSections);
+revealSections(); // run on load
+	  
+  </script>
+</body>
+</html>
