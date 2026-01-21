@@ -313,11 +313,6 @@ galleryImages.forEach((img, index) => {
     });
   });
 
-  // PDF opener (example: your presentation)
-  document.querySelector(".pdf-wrapper").addEventListener("click", () => {
-    openLightbox("Project_0/Presentation/Tilt_Table_Presentation.pdf#view=FitW", "", { isPDF: true });
-  });
-
   // Keyboard support
   document.addEventListener("keydown", (e) => {
     if (!lightbox.classList.contains("open")) return;
