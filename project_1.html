@@ -199,18 +199,35 @@
 	  <div class="case-study">
         <div class="case-block">
           <h2>Objective</h2>
-          <p>To build a prototype of a <strong>1/3 scale Tilt Table</strong> that serves as a proof of concept for loading boxes onto the cart with an automated system.</p>
+          <p>To design and implement a multi-cycle MIPS CPU on an FPGA by developing the core processor logic (datapath, control logic, 
+			  ALU) and creating a custom Python assembler to translate MIPS assembly into machine code, while integrating provided top-level FPGA wiring and pin constraints.</p>
         </div>
 
 		<div class="case-block">
-		  <h2>Summary</h2>
+		  <h2>Details</h2>
 		  <ul>
-			<li>Implemented entire multi-cycle MIPS processor (System Verilog), ALU inside MIPS processor using only
-			logic gates (System Verilog) and assembler (Python)</li>
-			<li>Supported R-type I-type J-type instructions</li>
+			<li>Designed for R-type I-type J-type instructions</li>
+			<li>ALU designed strictly at the logic gate level</li>
 			<li>ALU supported basic arithmetic, shift operations, comparison operation, error flags (overflow, zero, equal)</li>
 		  </ul>
 		</div>
+
+		<div class="case-block">
+		  <h2>Tools &amp; Software<</h2>
+		  <ul>
+		    <li>SystemVerilog (CPU, gate-level ALU)</li>
+		    <li>Python (custom MIPS assembler)</li>
+		    <li>Multi-cycle MIPS architecture</li>
+		    <li>XEM7310 FPGA board</li>
+		    <li>Vivado (simulation and synthesis)</li>
+		  </ul>
+		</div>
+
+		<div class="case-block">
+          <h2>Outcome</h2>
+          <p>Successfully executed given sets of R-type, I-type, and J-type MIPS assembly instructions on FPGA hardware, 
+			  producing correct values on a simulated register file and data/instruction memory</p>
+        </div>
 	  </div>
 	</section>
 	
