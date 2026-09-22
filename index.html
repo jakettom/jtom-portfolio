@@ -1,344 +1,697 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jacob Tom's Portfolio</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <title>Jacob Tom | Electrical Engineering Portfolio</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/site.css">
-  </head>
-  <body>
-    <button
-      class="menu-toggle"
-      id="menuToggle"
-      aria-expanded="false"
-      aria-controls="sidebar"
-      aria-label="Open menu"
-    >
-      <i class="fas fa-bars" aria-hidden="true"></i>
-    </button>
+  <meta
+    name="description"
+    content="Jacob Tom's electrical engineering portfolio featuring hardware, embedded systems, optical engineering, robotics, and computer architecture projects."
+  >
 
-    <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  >
 
-    <nav id="sidebar" class="sidebar" aria-label="Main navigation">
-      <h2>Portfolio</h2>
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
 
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#skills">Technical Skills</a></li>
-        <li><a href="#projects">Engineering Projects</a></li>
-        <li><a href="#work-experience">Work Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
+<body>
+  <!-- Mobile Menu Button -->
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    aria-expanded="false"
+    aria-controls="sidebar"
+    aria-label="Open menu"
+  >
+    <i class="fas fa-bars" aria-hidden="true"></i>
+  </button>
 
-        <li class="resume-link">
-          <a href="assets/2026-resume-jt.pdf" download>
-            <i class="fas fa-download" aria-hidden="true"></i>
-            Resume
-          </a>
-        </li>
-      </ul>
-    </nav>
+  <div
+    class="mobile-overlay"
+    id="mobileOverlay"
+    aria-hidden="true"
+  ></div>
 
-    <main class="content">
-      <!-- Home -->
-      <section id="home" class="section home">
-        <h1>Hey, I'm Jacob Tom</h1>
-        <p>Engineer | Designer</p>
+  <!-- Sidebar Navigation -->
+  <nav
+    id="sidebar"
+    class="sidebar"
+    aria-label="Main navigation"
+  >
+    <h2>Portfolio</h2>
 
-        <img
-          src="assets/profile-photo.jpeg"
-          alt="Portrait of Jacob Tom"
+    <ul>
+      <li>
+        <a href="#home">
+          <i class="fas fa-house" aria-hidden="true"></i>
+          Home
+        </a>
+      </li>
+
+      <li>
+        <a href="#about">
+          <i class="fas fa-user" aria-hidden="true"></i>
+          About Me
+        </a>
+      </li>
+
+      <li>
+        <a href="#education">
+          <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+          Education
+        </a>
+      </li>
+
+      <li>
+        <a href="#work-experience">
+          <i class="fas fa-briefcase" aria-hidden="true"></i>
+          Work Experience
+        </a>
+      </li>
+
+      <li>
+        <a href="#projects">
+          <i class="fas fa-microchip" aria-hidden="true"></i>
+          Projects
+        </a>
+      </li>
+
+      <li>
+        <a href="#skills">
+          <i class="fas fa-code" aria-hidden="true"></i>
+          Skills
+        </a>
+      </li>
+
+      <li>
+        <a href="#contact">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          Contact
+        </a>
+      </li>
+
+      <li class="resume-link">
+        <a
+          href="assets/2026-resume-jt.pdf"
+          download
         >
+          <i class="fas fa-download" aria-hidden="true"></i>
+          Resume
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-        <div class="button-group">
-          <a href="#projects">
-            <i class="fas fa-arrow-down" aria-hidden="true"></i>
-            View Projects
-          </a>
+  <!-- Main Content -->
+  <main class="content">
 
-          <a
-            href="assets/2026-resume-jt.pdf"
-            download
-            class="resume-btn"
-          >
-            <i class="fas fa-download" aria-hidden="true"></i>
-            Download Resume
-          </a>
-        </div>
-      </section>
+    <!-- Home Section -->
+    <section
+      id="home"
+      class="section home"
+      aria-labelledby="home-heading"
+    >
+      <h1 id="home-heading">Hey, I'm Jacob Tom</h1>
 
-      <!-- About -->
-      <section id="about" class="section about">
-        <h1>About Me</h1>
+      <p>
+        Electrical Engineering Student | Hardware Designer | Embedded Systems Enthusiast
+      </p>
 
-        <div class="about-box">
+      <img
+        src="assets/profile-photo.jpeg"
+        alt="Portrait of Jacob Tom"
+      >
+
+      <div class="button-group">
+        <a href="#projects">
+          <i class="fas fa-arrow-down" aria-hidden="true"></i>
+          View Projects
+        </a>
+
+        <a
+          href="assets/2026-resume-jt.pdf"
+          download
+          class="resume-btn"
+        >
+          <i class="fas fa-download" aria-hidden="true"></i>
+          Download Resume
+        </a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section
+      id="about"
+      class="section about"
+      aria-labelledby="about-heading"
+    >
+      <h1 id="about-heading">About Me</h1>
+
+      <div class="about-box">
+        <p>
+          I’m an undergraduate electrical engineering student at Harvard
+          University who enjoys turning ideas into tangible hardware and
+          working systems. My interests span analog circuit design, embedded
+          systems, optical engineering, computer architecture, robotics, and
+          electronic devices.
+        </p>
+
+        <p>
+          I enjoy bridging theory and practice through hands-on work with
+          circuits, signals, PCBs, sensors, microcontrollers, optical
+          instrumentation, and FPGA-based systems. I’m especially motivated by
+          problems that require both careful analysis and practical
+          implementation.
+        </p>
+
+        <p>
+          My experience includes designing PCBs and analog circuits, creating
+          embedded sensing systems, building optical measurement setups,
+          implementing digital hardware in SystemVerilog, and developing
+          Python-based tools for engineering analysis and automation.
+        </p>
+
+        <p>
+          I’m currently interested in engineering opportunities where I can
+          contribute to hardware, embedded, optical, or electrical systems
+          while continuing to learn from experienced engineers and researchers.
+          I’m always open to discussing technical projects, research,
+          internships, and future collaborations.
+        </p>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section
+      id="education"
+      class="section education"
+      aria-labelledby="education-heading"
+    >
+      <h1 id="education-heading">Education</h1>
+      <p>Academic background and relevant coursework.</p>
+
+      <div class="case-study">
+        <div class="case-block">
+          <h2>Harvard University</h2>
+
           <p>
-            I’m always looking for opportunities to turn the ideas of the future
-            into tangible results in the present. As an undergraduate electrical
-            engineering student, I enjoy bridging theory and practice through
-            hands-on work with circuits, signals, and embedded systems.
+            <strong>Bachelor of Science, Electrical Engineering</strong>
           </p>
 
           <p>
-            I’m especially motivated by problem-solving, whether that means
-            debugging a stubborn circuit, refining code, or validating designs
-            through real measurements.
+            Cambridge, MA
           </p>
 
           <p>
-            I’m currently seeking a summer internship where I can apply
-            classroom knowledge to real-world engineering challenges while
-            learning from experienced engineers. My background includes circuit
-            analysis, analog and digital electronics, and programming for
-            engineering applications, along with practical lab experience using
-            oscilloscopes, power supplies, and other measurement tools.
+            Expected June 2027
+          </p>
+        </div>
+
+        <div class="case-block">
+          <h2>Academic Performance</h2>
+
+          <p>
+            <strong>GPA:</strong> 4.0
           </p>
 
           <p>
-            I’m eager to contribute to technical projects and continue
-            developing my skills in a professional environment. If you’re open
-            to connecting or discussing internship opportunities, projects, or
-            engineering work, feel free to reach out! I’d love to start a
-            conversation.
+            John Harvard Scholarship — awarded to approximately the top 5% of
+            the class.
+          </p>
+
+          <p>
+            Detur Book Prize — awarded to approximately the top 10% of the
+            class.
           </p>
         </div>
-      </section>
 
-      <!-- Skills -->
-      <section id="skills" class="section skills">
-        <h1>Technical Skills</h1>
+        <div class="case-block">
+          <h2>Relevant Coursework</h2>
 
-        <div class="skills-category">
-          <h3>Proficient</h3>
-
-          <div class="skills-grid">
-            <div class="skill">Analog Circuit Design</div>
-            <div class="skill">Lab Equipment</div>
-            <div class="skill">LTSpice</div>
-            <div class="skill">SolidWorks</div>
-            <div class="skill">Python</div>
-            <div class="skill">SystemVerilog</div>
-            <div class="skill">MATLAB</div>
-            <div class="skill">Microsoft Office</div>
-          </div>
+          <ul>
+            <li>Computer Hardware &amp; Architecture</li>
+            <li>Control Theory</li>
+            <li>Circuits and Devices</li>
+            <li>Signals</li>
+            <li>Wave Physics</li>
+            <li>Electronic and Photonic Devices</li>
+            <li>Electromagnetism Physics</li>
+            <li>Introductory Computer Science</li>
+          </ul>
         </div>
+      </div>
+    </section>
 
-        <div class="skills-category">
-          <h3>Developing</h3>
+    <!-- Work Experience Section -->
+    <section
+      id="work-experience"
+      class="section work-experience"
+      aria-labelledby="work-heading"
+    >
+      <h1 id="work-heading">Work Experience</h1>
+      <p>Select a card to view additional details.</p>
 
-          <div class="skills-grid">
-            <div class="skill">PCB Design</div>
-            <div class="skill">Soldering</div>
-            <div class="skill">Computer Architecture</div>
-            <div class="skill">C/C++</div>
-            <div class="skill">Audio Device Design</div>
-            <div class="skill">Switching Converters</div>
-            <div class="skill">Optical Device Design</div>
-            <div class="skill">Git/GitHub</div>
-            <div class="skill">HTML</div>
-          </div>
-        </div>
-      </section>
+      <div class="work-experience-list">
 
-      <!-- Projects -->
-      <section id="projects" class="section projects">
-        <h1>Engineering Projects</h1>
-        <p>Explore selected engineering and design work.</p>
+        <!-- Diffraqtion -->
+        <div
+          class="work-experience-item"
+          title="Click to expand"
+        >
+          <h3>May 2026 – Present</h3>
 
-        <div class="project-list">
-          <div
-            class="project-card"
-            onclick="window.location.href='project_1.html'"
-            role="link"
-            tabindex="0"
-          >
-            <img
-              src="project_1/fpga.JPG"
-              alt="Multi-Cycle MIPS processor project"
-            >
-            <span class="overlay">View Project</span>
-            <h3>Multi-Cycle MIPS Processor</h3>
-          </div>
+          <p>
+            <strong>
+              Diffraqtion | Optical / Electrical Engineering Intern
+            </strong>
+          </p>
 
-          <div
-            class="project-card"
-            onclick="window.location.href='project_2.html'"
-            role="link"
-            tabindex="0"
-          >
-            <img
-              src="project_2/interf.jpg"
-              alt="Optical profilometer project"
-            >
-            <span class="overlay">View Project</span>
-            <h3>Optical Profilometer</h3>
-          </div>
+          <p>
+            <em>Somerville, MA</em>
+          </p>
 
-          <div
-            class="project-card"
-            onclick="window.location.href='project_3.html'"
-            role="link"
-            tabindex="0"
-          >
-            <img
-              src="project_3/rover2.jpeg"
-              alt="Mars rover project"
-            >
-            <span class="overlay">View Project</span>
-            <h3>Mars Rover</h3>
-          </div>
-
-          <div
-            class="project-card"
-            onclick="window.location.href='project_4.html'"
-            role="link"
-            tabindex="0"
-          >
-            <img
-              src="project_4/disp1.jpg"
-              alt="Decibel meter project"
-            >
-            <span class="overlay">View Project</span>
-            <h3>Decibel Meter</h3>
-          </div>
-
-          <div
-            class="project-card"
-            onclick="window.location.href='project_5.html'"
-            role="link"
-            tabindex="0"
-          >
-            <img
-              src="project_5/es51robot.jpg"
-              alt="Miniature basketball robot project"
-            >
-            <span class="overlay">View Project</span>
-            <h3>Basketball Robot</h3>
-          </div>
-        </div>
-      </section>
-
-      <!-- Work Experience -->
-      <section id="work-experience" class="section work-experience">
-        <h1>Work Experience</h1>
-        <p>Select a card to view additional details.</p>
-
-        <div class="work-experience-list">
-          <div
-            class="work-experience-item"
-            title="Click to expand"
-          >
-            <h3>October 2024 – Present</h3>
+          <div class="description">
             <p>
-              <strong>Harvard Recreation | Rock Wall Manager</strong>
+              Designed two scene-generation systems using Arduino and
+              Raspberry Pi for optical camera-testing setups.
             </p>
-            <p><em>Cambridge, MA</em></p>
 
-            <div class="description">
-              <p>
-                Led the transition of the Harvard Climbing Wall from an
-                independent organization to an official university activity,
-                coordinating organization, renovations, upgrades, and cleaning.
-              </p>
-
-              <p>
-                Organized climbing events and social activities to foster
-                community engagement and increase participation.
-              </p>
-
-              <p><strong>Awards/Achievements</strong></p>
-
-              <p>
-                Successfully managed operational changes during the transition
-                while maintaining safe and consistent wall access.
-              </p>
-
-              <p>
-                Contributed to improved facilities and programming for student
-                climbers.
-              </p>
-            </div>
-          </div>
-
-          <div
-            class="work-experience-item"
-            title="Click to expand"
-          >
-            <h3>August 2023 – June 2027</h3>
             <p>
-              <strong>
-                Harvard University | Bachelor of Science, Electrical Engineering
-              </strong>
+              Designed custom optical-table mounts and modeled components in
+              Fusion 360.
             </p>
-            <p><em>Cambridge, MA</em></p>
 
-            <div class="description">
-              <p><strong>GPA:</strong> 4.0</p>
+            <p>
+              Designed three light-source PCBs and one power-control PCB for
+              optical testing systems.
+            </p>
 
-              <p><strong>Relevant Coursework</strong></p>
+            <p>
+              Designed and maintained multiple camera-testing setups
+              incorporating digital micromirror devices and spatial light
+              modulators on optical tables.
+            </p>
 
-              <p>
-                Computing Hardware<br>
-                Systems and Control Theory<br>
-                Circuits and Devices<br>
-                Signals<br>
-                Electromagnetism Physics<br>
-                Wave Physics — audio and optics<br>
-                Introductory Computer Science
-              </p>
-
-              <p><strong>Awards/Achievements</strong></p>
-
-              <p>Detur Book Prize — high academic standing award</p>
-              <p>John Harvard Scholarship</p>
-              <p>Harvard Faculty Scholarship ×2</p>
-            </div>
+            <p>
+              Programmed an Arduino-based camera sensor for spatial light
+              modulator scene generation and designed its optical
+              configuration.
+            </p>
           </div>
         </div>
-      </section>
 
-      <!-- Contact -->
-      <section id="contact" class="section contact">
-        <h1>Contact Me</h1>
-        <p>Interested in connecting or discussing engineering opportunities?</p>
+        <!-- Computing Hardware Teaching Assistant -->
+        <div
+          class="work-experience-item"
+          title="Click to expand"
+        >
+          <h3>September 2026 – Present</h3>
 
-        <div class="social">
-          <a
-            href="https://www.linkedin.com/in/jacob-tom-31a48730/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i class="fab fa-linkedin" aria-hidden="true"></i>
-            LinkedIn
-          </a>
+          <p>
+            <strong>
+              Harvard University | Computing Hardware Teaching Assistant
+            </strong>
+          </p>
 
-          <a
-            href="https://github.com/jakettom"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i class="fab fa-github" aria-hidden="true"></i>
-            GitHub
-          </a>
+          <p>
+            <em>Lab Assistant — Allston, MA</em>
+          </p>
 
-          <a href="mailto:jtom@college.harvard.edu">
-            <i class="fas fa-envelope" aria-hidden="true"></i>
-            Email
-          </a>
+          <div class="description">
+            <p>
+              Teach students SystemVerilog and hardware description language
+              concepts for a computer architecture design laboratory.
+            </p>
+
+            <p>
+              Support student work involving arithmetic logic units, datapaths,
+              control logic, and MIPS processor architecture.
+            </p>
+          </div>
         </div>
-      </section>
 
-      <footer>
-        <p>© 2026 Jacob Tom — Engineering Portfolio</p>
-      </footer>
-    </main>
+        <!-- Harvard Microrobotics Lab -->
+        <div
+          class="work-experience-item"
+          title="Click to expand"
+        >
+          <h3>February 2026 – Present</h3>
 
-    <script src="assets/site.js"></script>
-  </body>
+          <p>
+            <strong>
+              Harvard Microrobotics Lab | Research Assistant
+            </strong>
+          </p>
+
+          <p>
+            <em>Allston, MA</em>
+          </p>
+
+          <div class="description">
+            <p>
+              Currently designing a KiCad PCB for VHF and GPS tracking
+              applications.
+            </p>
+
+            <p>
+              Working with embedded sensing, power hardware, and radio
+              frequency electronics for microrobotics research.
+            </p>
+          </div>
+        </div>
+
+        <!-- Harvard Recreation -->
+        <div
+          class="work-experience-item"
+          title="Click to expand"
+        >
+          <h3>October 2024 – Present</h3>
+
+          <p>
+            <strong>
+              Harvard Recreation | Rock Wall Manager
+            </strong>
+          </p>
+
+          <p>
+            <em>Cambridge, MA</em>
+          </p>
+
+          <div class="description">
+            <p>
+              Led the transition of the Harvard Climbing Wall from an
+              independent organization to an official Harvard Recreation
+              operation.
+            </p>
+
+            <p>
+              Coordinated organizational changes, renovations, facility
+              upgrades, cleaning, and continued wall operations.
+            </p>
+
+            <p>
+              Organized climbing events and social activities to support
+              community engagement and increase participation.
+            </p>
+
+            <p>
+              Successfully managed operational changes while maintaining safe
+              and consistent access to the climbing wall.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section
+      id="projects"
+      class="section projects"
+      aria-labelledby="projects-heading"
+    >
+      <h1 id="projects-heading">Engineering Projects</h1>
+      <p>
+        Selected projects in hardware, optics, embedded systems, robotics, and
+        computer architecture.
+      </p>
+
+      <div class="project-list">
+
+        <!-- Loudspeaker Capstone -->
+        <div
+          class="project-card"
+          role="article"
+          aria-label="Senior Capstone Design Thesis: Loudspeaker Project"
+        >
+          <div
+            class="project-card-placeholder"
+            aria-hidden="true"
+          >
+            <i class="fas fa-volume-high"></i>
+          </div>
+
+          <span class="overlay">Coming Soon</span>
+
+          <h3>
+            Senior Capstone Design Thesis: Loudspeaker Project
+          </h3>
+
+          <p>
+            March 2026 – Present
+          </p>
+        </div>
+
+        <!-- Multi-Cycle MIPS -->
+        <a
+          class="project-card"
+          href="project_1.html"
+          aria-label="View Multi-Cycle MIPS Processor project"
+        >
+          <img
+            src="project_1/fpga.JPG"
+            alt="FPGA board used for the Multi-Cycle MIPS Processor project"
+          >
+
+          <span class="overlay">View Project</span>
+
+          <h3>Multi-Cycle MIPS Processor</h3>
+
+          <p>
+            FPGA-based processor architecture, SystemVerilog, and Python
+            assembler.
+          </p>
+        </a>
+
+        <!-- Optical Profilometer -->
+        <a
+          class="project-card"
+          href="project_2.html"
+          aria-label="View Optical Profilometer project"
+        >
+          <img
+            src="project_2/interf.jpg"
+            alt="Interferometry-based optical profilometer setup"
+          >
+
+          <span class="overlay">View Project</span>
+
+          <h3>Optical Profilometer</h3>
+
+          <p>
+            Interferometric measurement system with approximately
+            100-nanometer-scale surface profile resolution.
+          </p>
+        </a>
+
+        <!-- Mars Rover -->
+        <a
+          class="project-card"
+          href="project_3.html"
+          aria-label="View Mars Rover project"
+        >
+          <img
+            src="project_3/rover2.jpeg"
+            alt="Mars rover robotics project"
+          >
+
+          <span class="overlay">View Project</span>
+
+          <h3>Mars Rover</h3>
+
+          <p>
+            KiCad power distribution board with buck converters, fuses, and
+            WAGO connectors.
+          </p>
+        </a>
+
+        <!-- Decibel Meter -->
+        <a
+          class="project-card"
+          href="project_4.html"
+          aria-label="View Decibel Meter project"
+        >
+          <img
+            src="project_4/disp1.jpg"
+            alt="Decibel meter display"
+          >
+
+          <span class="overlay">View Project</span>
+
+          <h3>Decibel Meter</h3>
+
+          <p>
+            Analog microphone circuit, Arduino firmware, display interface,
+            and 3D-printed enclosure.
+          </p>
+        </a>
+
+        <!-- Basketball Robot -->
+        <a
+          class="project-card"
+          href="project_5.html"
+          aria-label="View Miniature Basketball Robot project"
+        >
+          <img
+            src="project_5/es51robot.jpg"
+            alt="Miniature basketball robot"
+          >
+
+          <span class="overlay">View Project</span>
+
+          <h3>Miniature Basketball Robot</h3>
+
+          <p>
+            Mechanical design, CNC fabrication, drivetrain construction, and
+            robotic arm integration.
+          </p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section
+      id="skills"
+      class="section skills"
+      aria-labelledby="skills-heading"
+    >
+      <h1 id="skills-heading">Technical Skills</h1>
+      <p>Tools and technologies used across academic, research, and project work.</p>
+
+      <!-- Hardware Skills -->
+      <div class="skills-category">
+        <h3>Hardware</h3>
+
+        <div class="skills-grid">
+          <div class="skill">PCB Design</div>
+          <div class="skill">KiCad</div>
+          <div class="skill">Analog Circuit Design</div>
+          <div class="skill">Lab Equipment</div>
+          <div class="skill">LTspice</div>
+          <div class="skill">SolidWorks</div>
+          <div class="skill">Fusion 360</div>
+          <div class="skill">Soldering</div>
+          <div class="skill">Optical Instrumentation</div>
+          <div class="skill">Power Electronics</div>
+          <div class="skill">Switching Converters</div>
+          <div class="skill">Electronic Device Design</div>
+        </div>
+      </div>
+
+      <!-- Embedded Skills -->
+      <div class="skills-category">
+        <h3>Embedded Systems</h3>
+
+        <div class="skills-grid">
+          <div class="skill">Arduino</div>
+          <div class="skill">ESP32</div>
+          <div class="skill">Raspberry Pi</div>
+          <div class="skill">Embedded Sensing</div>
+          <div class="skill">Camera Sensors</div>
+          <div class="skill">Arduino Firmware</div>
+          <div class="skill">RF Hardware</div>
+          <div class="skill">GPS Tracking</div>
+        </div>
+      </div>
+
+      <!-- Software Skills -->
+      <div class="skills-category">
+        <h3>Software &amp; Programming</h3>
+
+        <div class="skills-grid">
+          <div class="skill">Python</div>
+          <div class="skill">SystemVerilog</div>
+          <div class="skill">MATLAB</div>
+          <div class="skill">C/C++</div>
+          <div class="skill">Git/GitHub</div>
+          <div class="skill">HTML</div>
+          <div class="skill">Vivado</div>
+          <div class="skill">Signal Processing</div>
+          <div class="skill">Computer Architecture</div>
+        </div>
+      </div>
+
+      <!-- Additional Skills Retained from Previous Portfolio -->
+      <div class="skills-category">
+        <h3>Additional Experience</h3>
+
+        <div class="skills-grid">
+          <div class="skill">Audio Device Design</div>
+          <div class="skill">Optical Device Design</div>
+          <div class="skill">3D Printing</div>
+          <div class="skill">Microsoft Office</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="section contact"
+      aria-labelledby="contact-heading"
+    >
+      <h1 id="contact-heading">Contact Me</h1>
+
+      <p>
+        Interested in connecting, discussing engineering opportunities, or
+        learning more about my work?
+      </p>
+
+      <div class="social">
+        <a href="mailto:jtom@college.harvard.edu">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          Email
+        </a>
+
+        <a
+          href="tel:+13107098923"
+        >
+          <i class="fas fa-phone" aria-hidden="true"></i>
+          Phone
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/jacob-tom-/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+          LinkedIn
+        </a>
+
+        <a
+          href="https://github.com/jakettom"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-github" aria-hidden="true"></i>
+          GitHub
+        </a>
+
+        <a
+          href="https://jakettom.github.io/jtom-portfolio"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fas fa-globe" aria-hidden="true"></i>
+          Portfolio
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 Jacob Tom — Engineering Portfolio</p>
+    </footer>
+  </main>
+
+  <script src="assets/site.js"></script>
+</body>
 </html>
