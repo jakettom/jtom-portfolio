@@ -13,100 +13,166 @@
 </head>
 
 <body>
-
-  <!-- Mobile Menu Toggle (hamburger) -->
-  <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="sidebar" aria-label="Open menu">
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    aria-expanded="false"
+    aria-controls="sidebar"
+    aria-label="Open menu"
+  >
     <i class="fas fa-bars" aria-hidden="true"></i>
   </button>
 
-  <!-- Visual overlay (mobile only visual) -->
   <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
 
-  <!-- Sidebar -->
-  <nav id="sidebar" class="sidebar" aria-label="Main navigation">
+  <nav id="sidebar" class="sidebar" aria-label="Project navigation">
     <h2>Portfolio</h2>
+
     <ul>
       <li><a href="#overview">Overview</a></li>
       <li><a href="#photos">Photos</a></li>
     </ul>
-    <a href="index.html#projects" class="back-button"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back</a>
+
+    <a href="index.html#projects" class="back-button">
+      <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      Back to Projects
+    </a>
   </nav>
 
-<!-- Main Content -->
-  <main class="content" id="mainContent" tabindex="-1">
+  <main class="content">
     <h1 class="project-title">Multi-Cycle MIPS Processor</h1>
 
-	<!-- Overview -->
-	<section id="overview" class="section" aria-labelledby="overview-heading">
-	  <h1 id="overview-heading">Project Overview</h1>
-	
-	  <div class="case-study">
+    <section
+      id="overview"
+      class="section"
+      aria-labelledby="overview-heading"
+    >
+      <h1 id="overview-heading">Project Overview</h1>
+
+      <div class="case-study">
         <div class="case-block">
           <h2>Objective</h2>
-          <p>To design and implement a multi-cycle MIPS CPU on an FPGA by developing the core processor logic (datapath, control logic, 
-			  ALU) and creating a custom Python assembler to translate MIPS assembly into machine code, while using provided top-level FPGA wiring code and pin constraints.
-		      (Computing Hardware class project) </p>
+          <p>
+            To design and implement a multi-cycle MIPS CPU on an FPGA by
+            developing the core processor logic, including the datapath,
+            control logic, and ALU. The project also included creating a
+            custom Python assembler to translate MIPS assembly into machine
+            code while using provided top-level FPGA wiring code and pin
+            constraints.
+          </p>
+          <p>
+            This project was completed as part of a Computing Hardware class.
+          </p>
         </div>
 
-		<div class="case-block">
-		  <h2>Details</h2>
-		  <ul>
-			<li>Designed for R-type I-type J-type instructions</li>
-			<li>ALU designed strictly at the logic gate level</li>
-			<li>ALU supported basic arithmetic, shift operations, comparison operation, error flags (overflow, zero, equal)</li>
-		  </ul>
-		</div>
+        <div class="case-block">
+          <h2>Details</h2>
+          <ul>
+            <li>Designed support for R-type, I-type, and J-type instructions</li>
+            <li>Designed the ALU strictly at the logic-gate level</li>
+            <li>Implemented arithmetic, shift, and comparison operations</li>
+            <li>Added overflow, zero, and equality error flags</li>
+          </ul>
+        </div>
 
-		<div class="case-block">
-		  <h2>Tools &amp; Software</h2>
-		  <ul>
-		    <li>SystemVerilog (CPU, gate-level ALU)</li>
-		    <li>Python (custom MIPS assembler)</li>
-		    <li>Multi-cycle MIPS architecture</li>
-		    <li>XEM7310 FPGA board</li>
-		    <li>Vivado (simulation and synthesis)</li>
-		  </ul>
-		</div>
+        <div class="case-block">
+          <h2>Tools &amp; Software</h2>
+          <ul>
+            <li>SystemVerilog</li>
+            <li>Python</li>
+            <li>Multi-cycle MIPS architecture</li>
+            <li>XEM7310 FPGA board</li>
+            <li>Vivado for simulation and synthesis</li>
+          </ul>
+        </div>
 
-		<div class="case-block">
+        <div class="case-block">
           <h2>Outcome</h2>
-          <p>Successfully executed given sets of R-type, I-type, and J-type MIPS assembly instructions on FPGA hardware.
-			  Produced correct values on a simulated register file and data/instruction memory.
-		  	  Received an A letter grade on the project. </p>
+          <p>
+            Successfully executed sets of R-type, I-type, and J-type MIPS
+            assembly instructions on FPGA hardware. The processor produced
+            correct values on a simulated register file and data/instruction
+            memory.
+          </p>
+          <p>
+            Received an A letter grade on the project.
+          </p>
         </div>
-	  </div>
-	</section>
-	
-	    <!-- Photos -->
-	    <section id="photos" class="section" aria-labelledby="photos-heading">
-	      <h1 id="photos-heading">Photos</h1>
-	      <div class="masonry" id="photosMasonry">
-	        <div class="img-wrapper"><img loading="lazy" src="project_1/fpga.JPG" alt="Jacket"><span class="overlay">Click to expand</span></div>
-	        <div class="img-wrapper"><img loading="lazy" src="project_1/fsm.jpg" alt="Form"><span class="overlay">Click to expand</span></div>
-	        <div class="img-wrapper"><img loading="lazy" src="project_1/processor.jpg" alt="Form 1"><span class="overlay">Click to expand</span></div>
-	      </div>
-	    </section>
-	  
-<!-- Lightbox (Unified for Images + PDFs) -->
-<!-- 🔹 Single Lightbox (for Images + PDFs) -->
-<div id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Expanded view">
-  <span id="lbCloseBtn" aria-label="Close lightbox">&times;</span>
-  <button id="lbPrevBtn" aria-label="Previous image">&#10094;</button>
-  <button id="lbNextBtn" aria-label="Next image">&#10095;</button>
-  
-  <div class="lightbox-content">
-    <img id="lightboxImg" alt="" />
-    <iframe id="lightboxIframe" src="" frameborder="0"></iframe>
-  </div>
-</div>
-	  
-		    <!-- Footer -->
-	    <footer>
-	      <p>© 2026 Jacob Tom — Engineering Portfolio</p>
-	    </footer>
-	  </main>
+      </div>
+    </section>
 
- <!-- Scripts -->
-<script src="assets/site.js"></script>
+    <section
+      id="photos"
+      class="section"
+      aria-labelledby="photos-heading"
+    >
+      <h1 id="photos-heading">Project Photos</h1>
+      <p>Click an image to expand it.</p>
+
+      <div class="masonry">
+        <div class="img-wrapper">
+          <img
+            loading="lazy"
+            src="project_1/fpga.JPG"
+            alt="FPGA board used for the MIPS processor"
+          >
+          <span class="overlay">Expand Image</span>
+        </div>
+
+        <div class="img-wrapper">
+          <img
+            loading="lazy"
+            src="project_1/fsm.jpg"
+            alt="Finite state machine diagram"
+          >
+          <span class="overlay">Expand Image</span>
+        </div>
+
+        <div class="img-wrapper">
+          <img
+            loading="lazy"
+            src="project_1/processor.jpg"
+            alt="Multi-cycle MIPS processor design"
+          >
+          <span class="overlay">Expand Image</span>
+        </div>
+      </div>
+    </section>
+
+    <div
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-label="Expanded project image"
+    >
+      <button id="lbCloseBtn" aria-label="Close image viewer">
+        <i class="fas fa-xmark"></i>
+      </button>
+
+      <button id="lbPrevBtn" aria-label="Previous image">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <button id="lbNextBtn" aria-label="Next image">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <div class="lightbox-content">
+        <img id="lightboxImg" alt="">
+        <iframe
+          id="lightboxIframe"
+          src=""
+          title="Expanded document"
+        ></iframe>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2026 Jacob Tom — Engineering Portfolio</p>
+    </footer>
+  </main>
+
+  <script src="assets/site.js"></script>
 </body>
 </html>

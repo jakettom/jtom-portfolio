@@ -14,113 +14,203 @@
 
 
 <body>
-
-  <!-- Mobile Menu Toggle (hamburger) -->
-  <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="sidebar" aria-label="Open menu">
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    aria-expanded="false"
+    aria-controls="sidebar"
+    aria-label="Open menu"
+  >
     <i class="fas fa-bars" aria-hidden="true"></i>
   </button>
 
-  <!-- Visual overlay (mobile only visual) -->
   <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
 
-  <!-- Sidebar -->
-  <nav id="sidebar" class="sidebar" aria-label="Main navigation">
+  <nav id="sidebar" class="sidebar" aria-label="Project navigation">
     <h2>Portfolio</h2>
+
     <ul>
       <li><a href="#overview">Overview</a></li>
       <li><a href="#photos">Photos</a></li>
     </ul>
-    <a href="index.html#projects" class="back-button"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back</a>
+
+    <a href="index.html#projects" class="back-button">
+      <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      Back to Projects
+    </a>
   </nav>
 
+  <main class="content">
+    <h1 class="project-title">
+      Interferometry-Based Optical Profilometer
+    </h1>
 
-  <!-- Main Content -->
-  <main class="content" id="mainContent" tabindex="-1">
-    <h1 class="project-title">Interferometry-based Optical Profilometer</h1>
-	
-	<!-- Overview -->
-	<section id="overview" class="section" aria-labelledby="overview-heading">
-	  <h1 id="overview-heading">Project Overview</h1>
-	
-	  <div class="case-study">
-		  <div class="case-block">
-		    <h2>Objective</h2>
-		    <p>
-		      Develop a high-precision optical profilometer using interferometric measurement (Personal Project)
-		    </p>
-		  </div>
-		
-		  <div class="case-block">
-		    <h2>Details</h2>
-		    <ul>
-		      <li>Designed and built an optical profilometer using commercial optics and a coherent laser source (based on the Michelson interferometer design)</li>
-		      <li>Implemented the system on an optical table through alignment and calibration techniques</li>
-		      <li>Developed a Python-based digital signal processing pipeline to extract surface profiles from interference fringe data</li>
-		    </ul>
-		  </div>
-		
-		  <div class="case-block">
-		    <h2>Responsibilities</h2>
-		    <ul>
-		      <li>Led project planning, research, and task delegation within a two-person team</li>
-		      <li>Designed and implemented signal processing algorithms for interferometric data analysis</li>
-		      <li>Assisted in optical system alignment, calibration, and experimental validation</li>
-		    </ul>
-		  </div>
-		
-		  <div class="case-block">
-		    <h2>Tools &amp; Software</h2>
-		    <ul>
-		      <li>Python (signal processing, data analysis)</li>
-		      <li>Optical instrumentation: mirrors, beam splitters, laser source</li>
-		      <li>Thorlabs camera</li>
-		      <li>Opto-mechanical hardware (mounts, clamps)</li>
-		    </ul>
-		  </div>
-		
-		  <div class="case-block">
-		    <h2>Outcome</h2>
-		    <p>
-		      Achieved statistically significant surface profile measurements with resolution on the order of
-		      <strong>hundreds of nanometers</strong>.
-		    </p>
-		  </div>
+    <section
+      id="overview"
+      class="section"
+      aria-labelledby="overview-heading"
+    >
+      <h1 id="overview-heading">Project Overview</h1>
 
-	  </div>
-	</section>
-	
-	    <!-- Photos -->
-	    <section id="photos" class="section" aria-labelledby="photos-heading">
-	      <h1 id="photos-heading">Photos</h1>
-	      <div class="masonry" id="photosMasonry">
-	        <div class="img-wrapper"><img loading="lazy" src="project_2/data.jpg" alt="Jacket"><span class="overlay">Click to expand</span></div>
-	        <div class="img-wrapper"><img loading="lazy" src="project_2/diagram.jpg" alt="Form"><span class="overlay">Click to expand</span></div>
-	        <div class="img-wrapper"><img loading="lazy" src="project_2/interf.jpg" alt="Form 1"><span class="overlay">Click to expand</span></div>
-			<div class="img-wrapper"><img loading="lazy" src="project_2/results.jpg" alt="Form"><span class="overlay">Click to expand</span></div>
-	        <div class="img-wrapper"><img loading="lazy" src="project_2/stage.JPG" alt="Form 1"><span class="overlay">Click to expand</span></div>
-	      </div>
-	    </section>
+      <div class="case-study">
+        <div class="case-block">
+          <h2>Objective</h2>
+          <p>
+            Develop a high-precision optical profilometer using interferometric
+            measurement based on the Michelson interferometer design.
+          </p>
+          <p>
+            This project was completed as a personal project.
+          </p>
+        </div>
 
-<!-- Lightbox (Unified for Images + PDFs) -->
-<!-- 🔹 Single Lightbox (for Images + PDFs) -->
-<div id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Expanded view">
-  <span id="lbCloseBtn" aria-label="Close lightbox">&times;</span>
-  <button id="lbPrevBtn" aria-label="Previous image">&#10094;</button>
-  <button id="lbNextBtn" aria-label="Next image">&#10095;</button>
-  
-  <div class="lightbox-content">
-    <img id="lightboxImg" alt="" />
-    <iframe id="lightboxIframe" src="" frameborder="0"></iframe>
-  </div>
-</div>
-	  
-		    <!-- Footer -->
-	    <footer>
-	      <p>© 2026 Jacob Tom — Engineering Portfolio</p>
-	    </footer>
-	  </main>
+        <div class="case-block">
+          <h2>Details</h2>
+          <ul>
+            <li>
+              Designed and built an optical profilometer using commercial
+              optics and a coherent laser source
+            </li>
+            <li>
+              Implemented the system on an optical table through alignment and
+              calibration techniques
+            </li>
+            <li>
+              Developed a Python-based digital signal processing pipeline to
+              extract surface profiles from interference fringe data
+            </li>
+          </ul>
+        </div>
 
- <!-- Scripts -->
+        <div class="case-block">
+          <h2>Responsibilities</h2>
+          <ul>
+            <li>
+              Led project planning, research, and task delegation within a
+              two-person team
+            </li>
+            <li>
+              Designed and implemented signal processing algorithms for
+              interferometric data analysis
+            </li>
+            <li>
+              Assisted in optical system alignment, calibration, and
+              experimental validation
+            </li>
+          </ul>
+        </div>
+
+        <div class="case-block">
+          <h2>Tools &amp; Software</h2>
+          <ul>
+            <li>Python for signal processing and data analysis</li>
+            <li>Mirrors, beam splitters, and laser source</li>
+            <li>Thorlabs camera</li>
+            <li>Opto-mechanical mounts and clamps</li>
+          </ul>
+        </div>
+
+        <div class="case-block">
+          <h2>Outcome</h2>
+          <p>
+            Achieved statistically significant surface profile measurements
+            with resolution on the order of
+            <strong>hundreds of nanometers</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="photos"
+      class="section"
+      aria-labelledby="photos-heading"
+    >
+      <h1 id="photos-heading">Project Photos</h1>
+      <p>Click an image to expand it.</p>
+
+      <div class="masonry">
+        <div class="img-wrapper">
+          <img
+            loading="lazy"
+            src="project_2/data.jpg"
+            alt="Profilometer measurement data"
+          >
+          <span class="overlay">Expand Image</span>
+        </div>
+
+        <div class="img-wrapper">
+          <img
+            loading="lazy"
+            src="project_2/diagram.jpg"
+            alt="Optical profilometer diagram"
+          >
+          <span class="overlay">Expand Image</span>
+        </div>
+
+        <div class="img-wrapper">
+          <img
+            loading="lazy"
+            src="project_2/interf.jpg"
+            alt="Interferometer optical setup"
+          >
+          <span class="overlay">Expand Image</span>
+        </div>
+
+        <div class="img-wrapper">
+          <img
+            loading="lazy"
+            src="project_2/results.jpg"
+            alt="Profilometer results"
+          >
+          <span class="overlay">Expand Image</span>
+        </div>
+
+        <div class="img-wrapper">
+          <img
+            loading="lazy"
+            src="project_2/stage.JPG"
+            alt="Optical measurement stage"
+          >
+          <span class="overlay">Expand Image</span>
+        </div>
+      </div>
+    </section>
+
+    <div
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-label="Expanded project image"
+    >
+      <button id="lbCloseBtn" aria-label="Close image viewer">
+        <i class="fas fa-xmark"></i>
+      </button>
+
+      <button id="lbPrevBtn" aria-label="Previous image">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <button id="lbNextBtn" aria-label="Next image">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <div class="lightbox-content">
+        <img id="lightboxImg" alt="">
+        <iframe
+          id="lightboxIframe"
+          src=""
+          title="Expanded document"
+        ></iframe>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2026 Jacob Tom — Engineering Portfolio</p>
+    </footer>
+  </main>
+
   <script src="assets/site.js"></script>
 </body>
 </html>
